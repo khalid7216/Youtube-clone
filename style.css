@@ -8,7 +8,8 @@
 /* Base */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
+/* cursor: pointer; */
 }
 
 /* NAVIGATION BAR */
@@ -49,7 +50,7 @@ nav.logo {
 .container {
   display: flex;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   padding: 6px 10px;
   border-radius: 24px;
   width: 100%;
@@ -57,8 +58,8 @@ nav.logo {
 }
 
 .search-bar {
-  border: none;
-  outline: none;
+  border: 1px black solid;
+   outline: none;
   background: transparent;
   padding: 8px 10px;
   font-size: 16px;
@@ -141,7 +142,7 @@ nav.logo {
 /* THUMBNAILS */
 .thumbnail-box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   gap: 1rem;
   padding: 1rem;
   width: 100%;
@@ -157,7 +158,9 @@ nav.logo {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 20px;
+  aspect-ratio: 16/9;
+  display: block;
+  border-radius: 10px;
 }
 
 .title {
@@ -184,20 +187,81 @@ nav.logo {
   padding: 20px;
   font-size: 18px;
   font-weight: bold;
+
+ grid-row: 1fr 1fr 1fr 1fr 
 }
 
 .parent {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0 20px 40px;
+  /* padding: 0 20px 40px; */
+  flex-direction: row;
+  
 }
-
 .shorts-wrapper {
   width: 200px;
 }
 
 .video-box {
   width: 100%;
-  aspect-ratio: 9 /16
+  aspect-ratio: 9 / 14;
+  overflow: hidden;
+  padding: 10px;
+  
+}
+.video-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.short-text{
+  /* padding: 20px; */
+padding-left: 20px;
+cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .thumbnail-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .thumbnail-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .parent {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  nav.logo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .middle, .container {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-box {
+    grid-template-columns: 1fr;
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .short-text, .title {
+    font-size: 14px;
+  }
+
+  .views {
+    font-size: 12px;
+  }
 }
